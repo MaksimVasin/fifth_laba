@@ -19,7 +19,32 @@ class Library : LibraryService {
         return getAllBooks().filter { it.genre == genre }
     }
 
-    //override fun findBooks(){}
+    override fun findBooks(
+        substring: String?,
+        author: Author?,
+        year: Int?,
+        genre: Genre?,
+        status: Status?,
+    ): List<Book> {
+        var booksList: List<Book> = getAllBooks()
+        // change the list of books, if with each filter
+        if (substring != null) {
+            booksList = booksList.filter { it.title.contains(substring) }
+        }
+        if (author != null) {
+            booksList = booksList.filter { it.author.contains(author) }
+        }
+        if (year != null) {
+            booksList = booksList.filter { it.year == year }
+        }
+        if (genre != null) {
+            booksList = booksList.filter { it.genre == genre }
+        }
+        if (status != null) {
+            booksList = booksList.filter { books[it] == status }
+        }
+        return booksList
+    }
 
     override fun getAllBooks(): List<Book> {
         return books.keys.toList()
