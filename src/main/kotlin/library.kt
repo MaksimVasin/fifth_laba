@@ -1,7 +1,8 @@
+const val countBooksPerUser: Int = 3
+
 class Library : LibraryService {
     private val users: MutableList<User> = mutableListOf()
     private val books: MutableMap<Book, Status> = mutableMapOf()
-    private val countBooksPerUser: Int = 3
 
     override fun findBooks(substring: String): List<Book> {
         return getAllBooks().filter { it.title.contains(substring) }
@@ -63,7 +64,7 @@ class Library : LibraryService {
     }
 
     override fun getAllBookStatuses(): Map<Book, Status> {
-        return books
+        return books.toMap()
     }
 
     override fun setBookStatus(book: Book, status: Status) {

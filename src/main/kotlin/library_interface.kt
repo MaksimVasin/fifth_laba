@@ -1,17 +1,19 @@
-class Book(
+data class Book(
     val title: String,
     val author: List<Author>,
     val year: Int,
     val genre: Genre,
 )
 
-open class Person(
+class Author(
     val firstName: String,
     val lastName: String,
 )
 
-class Author(firstName: String, lastName: String) : Person(firstName, lastName)
-class User(firstName: String, lastName: String) : Person(firstName, lastName)
+data class User(
+    val firstName: String,
+    val lastName: String,
+)
 
 enum class Genre {
     Drama,
