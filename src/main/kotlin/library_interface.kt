@@ -34,13 +34,7 @@ interface LibraryService {
     fun findBooks(author: Author): List<Book> // search for books by author
     fun findBooks(year: Int): List<Book> // search for books by year
     fun findBooks(genre: Genre): List<Book> // search for books by genre
-    fun findBooks(
-        substring: String? = null,
-        author: Author? = null,
-        year: Int? = null,
-        genre: Genre? = null,
-        status: Status? = null
-    ): List<Book> // search for books by different parameters
+    //fun findBooks(): List<Book> // search for books by different parameters
 
     fun getAllBooks(): List<Book> // get a list of all books
     fun getAllUsers(): List<User> // get a list of all users
